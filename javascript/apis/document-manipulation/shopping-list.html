@@ -31,6 +31,37 @@
     </ul>
 
     <script>
+    
+      const list = document.querySelector("ul");
+
+      const input = document.querySelector("input");
+
+      const btn = document.querySelector("button");
+
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        let itemText = input.value;
+        input.value = "";
+
+        const item = document.createElement("li");
+        const span = document.createElement("span");
+        const removeBtn = document.createElement("button");
+
+        item.appendChild(span);
+        item.appendChild(removeBtn);
+
+        span.textContent = itemText;
+        removeBtn.textContent = "Delete";
+
+        list.appendChild(item);
+
+        removeBtn.addEventListener("click", () => {
+          item.remove();
+        })
+
+        input.focus();
+
+      });
 
     </script>
   </body>
